@@ -24,10 +24,10 @@ def initialise():
         
         for k in range(6,9):
             solve_state[i,k] = "W"
-            
+    
+    print(solve_state)
 
 
 
 initialise()
 
-print(solve_state)
