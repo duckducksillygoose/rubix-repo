@@ -28,6 +28,9 @@ def initialise():
     print(solve_state)
 
 
-
 initialise()
 
+print("NEW ARRAY")
+
+solve_state[:,6] = np.roll(solve_state[:,6], shift = 3, axis = 0)
+print(solve_state)
