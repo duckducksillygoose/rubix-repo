@@ -36,10 +36,20 @@ print("NEW ARRAY")
 #Vertical changes: it's not just the column shifting upwards, the back face changes as well
 #Horizontal changes = top face does not change, axis loops around by 3
 
-#example of LD manouevre
-# solve_state[:,6]=np.roll(solve_state[:,6], 3, 0) 1st step
-#O side also needs to be replaced
-# something like : solve_state[0:2, 3] = np.roll(solve_state[6,0:2], 
 
+
+#LD
+#solve_state[:,6]= np.roll(solve_state[:,6], 3, 0)
+#solve_state[3:6, 3:6]=np.rot90(solve_state[3:6, 3:6],axes=(1,0))
+
+#LU
+#solve_state[:,6]= np.roll(solve_state[:,6], -3, 0)
+#solve_state[3:6, 3:6]=np.rot90(solve_state[3:6, 3:6],axes=(0,1))
+#only difference is changing the direction and relevant axes
+
+#RD
+#solve_state[:,8]= np.roll(solve_state[:,8], 3, 0)
+#solve_state[3:6, 3:6]=np.rot90(solve_state[3:6, 9:12],axes=(1,0))
+#only difference is changing the direction and relevant axes
 
 print(solve_state)
