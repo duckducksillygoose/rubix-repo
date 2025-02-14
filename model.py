@@ -32,5 +32,14 @@ initialise()
 
 print("NEW ARRAY")
 
-solve_state[:,6] = np.roll(solve_state[:,6], shift = 3, axis = 0)
+# use rubix cube to visualise how array changes
+#Vertical changes: it's not just the column shifting upwards, the back face changes as well
+#Horizontal changes = top face does not change, axis loops around by 3
+
+#example of LD manouevre
+# solve_state[:,6]=np.roll(solve_state[:,6], 3, 0) 1st step
+#O side also needs to be replaced
+# something like : solve_state[0:2, 3] = np.roll(solve_state[6,0:2], 
+
+
 print(solve_state)
