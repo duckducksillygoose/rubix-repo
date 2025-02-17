@@ -48,14 +48,34 @@ print("NEW ARRAY")
 #only difference is changing the direction and relevant axes
 
 #RU
-solve_state[:,8]= np.roll(solve_state[:,8], 3, 0)
-solve_state[3:6, 9:12]=np.rot90(solve_state[3:6, 9:12],axes=(1,0))
+#solve_state[:,8]= np.roll(solve_state[:,8], 3, 0)
+#solve_state[3:6, 9:12]=np.rot90(solve_state[3:6, 9:12],axes=(1,0))
 #only difference is changing the direction and relevant axes
 
-print(solve_state)
+#print(solve_state)
 #RD
 #solve_state[:,8]= np.roll(solve_state[:,8], -3, 0)
 #solve_state[3:6, 9:12]=np.rot90(solve_state[3:6, 9:12],axes=(0,1))
 #only difference is changing the direction and relevant axes
 
+#print(solve_state)
+
+#TL:
+#solve_state[3,:]= np.roll(solve_state[3,:], -3, 0)
+#solve_state[0:3, 6:9]=np.rot90(solve_state[0:3, 6:9], axes=(1,0))
+#print(solve_state)
+
+#TR:
+#solve_state[3,:]= np.roll(solve_state[3,:], 3, 0)
+#solve_state[0:3, 6:9]=np.rot90(solve_state[0:3, 6:9], axes=(1,0))
+#print(solve_state)
+
+#BL:
+solve_state[5,:]= np.roll(solve_state[3,:], -3, 0)
+solve_state[6:9, 6:9]=np.rot90(solve_state[6:9, 6:9], axes=(0,1))
+print(solve_state)
+
+#BR:
+solve_state[5,:]= np.roll(solve_state[3,:], 3, 0)
+solve_state[6:9, 6:9]=np.rot90(solve_state[6:9, 6:9], axes=(0,1))
 print(solve_state)
