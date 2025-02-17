@@ -73,3 +73,14 @@ def BR():
     solve_state[5,:]= np.roll(solve_state[3,:], 3, 0)
     solve_state[6:9, 6:9]=np.rot90(solve_state[6:9, 6:9], axes=(0,1))
 
+
+
+moves= []
+
+moves.append(TL(), TR(), BL(), BR(), LU(), LD(), RU(), RD())
+
+def scramble():
+    
+
+
+print(solve_state)
