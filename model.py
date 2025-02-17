@@ -32,50 +32,44 @@ initialise()
 
 print("NEW ARRAY")
 
-# use rubix cube to visualise how array changes
-#Vertical changes: it's not just the column shifting upwards, the back face changes as well
-#Horizontal changes = top face does not change, axis loops around by 3
+def LD():
+    solve_state[:,6]= np.roll(solve_state[:,6], 3, 0)
+    #solve_state[3:6, 3:6]=np.rot90(solve_state[3:6, 3:6],axes=(1,0))
+
+def LU():
+    solve_state[:,6]= np.roll(solve_state[:,6], -3, 0)
+    solve_state[3:6, 3:6]=np.rot90(solve_state[3:6, 3:6],axes=(0,1))
+
+
+def RU():
+    solve_state[:,8]= np.roll(solve_state[:,8], 3, 0)
+    solve_state[3:6, 9:12]=np.rot90(solve_state[3:6, 9:12],axes=(1,0))
 
 
 
-#LD
-#solve_state[:,6]= np.roll(solve_state[:,6], 3, 0)
-#solve_state[3:6, 3:6]=np.rot90(solve_state[3:6, 3:6],axes=(1,0))
+def RD():
+    solve_state[:,8]= np.roll(solve_state[:,8], -3, 0)
+    solve_state[3:6, 9:12]=np.rot90(solve_state[3:6, 9:12],axes=(0,1))
 
-#LU
-#solve_state[:,6]= np.roll(solve_state[:,6], -3, 0)
-#solve_state[3:6, 3:6]=np.rot90(solve_state[3:6, 3:6],axes=(0,1))
-#only difference is changing the direction and relevant axes
 
-#RU
-#solve_state[:,8]= np.roll(solve_state[:,8], 3, 0)
-#solve_state[3:6, 9:12]=np.rot90(solve_state[3:6, 9:12],axes=(1,0))
-#only difference is changing the direction and relevant axes
 
-#print(solve_state)
-#RD
-#solve_state[:,8]= np.roll(solve_state[:,8], -3, 0)
-#solve_state[3:6, 9:12]=np.rot90(solve_state[3:6, 9:12],axes=(0,1))
-#only difference is changing the direction and relevant axes
 
-#print(solve_state)
+def TL():
+    solve_state[3,:]= np.roll(solve_state[3,:], -3, 0)
+    solve_state[0:3, 6:9]=np.rot90(solve_state[0:3, 6:9], axes=(1,0))
 
-#TL:
-#solve_state[3,:]= np.roll(solve_state[3,:], -3, 0)
-#solve_state[0:3, 6:9]=np.rot90(solve_state[0:3, 6:9], axes=(1,0))
-#print(solve_state)
 
-#TR:
-#solve_state[3,:]= np.roll(solve_state[3,:], 3, 0)
-#solve_state[0:3, 6:9]=np.rot90(solve_state[0:3, 6:9], axes=(1,0))
-#print(solve_state)
+def TR():
+    solve_state[3,:]= np.roll(solve_state[3,:], 3, 0)
+    solve_state[0:3, 6:9]=np.rot90(solve_state[0:3, 6:9], axes=(1,0))
 
-#BL:
-solve_state[5,:]= np.roll(solve_state[3,:], -3, 0)
-solve_state[6:9, 6:9]=np.rot90(solve_state[6:9, 6:9], axes=(0,1))
-print(solve_state)
 
-#BR:
-solve_state[5,:]= np.roll(solve_state[3,:], 3, 0)
-solve_state[6:9, 6:9]=np.rot90(solve_state[6:9, 6:9], axes=(0,1))
-print(solve_state)
+def BL()
+    solve_state[5,:]= np.roll(solve_state[3,:], -3, 0)
+    solve_state[6:9, 6:9]=np.rot90(solve_state[6:9, 6:9], axes=(0,1))
+    
+
+def BR()
+    solve_state[5,:]= np.roll(solve_state[3,:], 3, 0)
+    solve_state[6:9, 6:9]=np.rot90(solve_state[6:9, 6:9], axes=(0,1))
+    
