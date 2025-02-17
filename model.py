@@ -34,7 +34,7 @@ print("NEW ARRAY")
 
 def LD():
     solve_state[:,6]= np.roll(solve_state[:,6], 3, 0)
-    #solve_state[3:6, 3:6]=np.rot90(solve_state[3:6, 3:6],axes=(1,0))
+    solve_state[3:6, 3:6]=np.rot90(solve_state[3:6, 3:6],axes=(1,0))
 
 def LU():
     solve_state[:,6]= np.roll(solve_state[:,6], -3, 0)
@@ -65,22 +65,25 @@ def TR():
 
 
 def BL():
-    solve_state[5,:]= np.roll(solve_state[3,:], -3, 0)
+    solve_state[5,:]= np.roll(solve_state[5,:], -3, 0)
     solve_state[6:9, 6:9]=np.rot90(solve_state[6:9, 6:9], axes=(0,1))
     
 
 def BR():
-    solve_state[5,:]= np.roll(solve_state[3,:], 3, 0)
+    solve_state[5,:]= np.roll(solve_state[5,:], 3, 0)
     solve_state[6:9, 6:9]=np.rot90(solve_state[6:9, 6:9], axes=(0,1))
 
 
 
-moves= []
+moves= [TL, TR, BL, BR, LU, LD, RU, RD]
 
-moves.append(TL(), TR(), BL(), BR(), LU(), LD(), RU(), RD())
 
-def scramble():
-    
+
+
+for i in range(10):
+    move = random.choice(moves)
+    result = move()
+    print("selected function is, {move.name}")
 
 
 print(solve_state)
