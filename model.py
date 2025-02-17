@@ -6,7 +6,7 @@ import random
 solve_state = np.empty((9,12), dtype = "str")
 solve_state.fill("*")
 
-
+#make simpler
 def initialise():
     for i in range (3,6):
         for j in range (0,3):
@@ -64,12 +64,12 @@ def TR():
     solve_state[0:3, 6:9]=np.rot90(solve_state[0:3, 6:9], axes=(1,0))
 
 
-def BL()
+def BL():
     solve_state[5,:]= np.roll(solve_state[3,:], -3, 0)
     solve_state[6:9, 6:9]=np.rot90(solve_state[6:9, 6:9], axes=(0,1))
     
 
-def BR()
+def BR():
     solve_state[5,:]= np.roll(solve_state[3,:], 3, 0)
     solve_state[6:9, 6:9]=np.rot90(solve_state[6:9, 6:9], axes=(0,1))
-    
+
