@@ -83,7 +83,7 @@ moves= [TL, TR, BL, BR, LU, LD, RU, RD]
 for i in range(10):
     move = random.choice(moves)
     result = move()
-    print("selected function is, {move.name}")
+    print("selected function is", move)
 
 
 print(solve_state)
