@@ -78,12 +78,36 @@ def BR():
 moves= [TL, TR, BL, BR, LU, LD, RU, RD]
 
 
-
+moves_made = []
 
 for i in range(10):
     move = random.choice(moves)
     result = move()
+    moves_made.append(move)
     print("selected function is", move)
 
+moves_made = moves_made [::-1]
 
-print(solve_state)
+print(moves_made)
+
+def cube_import():
+    print(solve_state)
+
+
+#reversal manouevres
+print(moves_made[::-1])
+
+reward = 0
+
+s_moves=[]
+#solution
+for i  in range (10):
+    step = random.choice(moves)
+    s_moves.append(step)
+    if s_moves[i] != moves_made[i]:
+        reward = reward - 1
+
+    else:
+        reward = reward + 1
+
+print(reward)
