@@ -80,18 +80,18 @@ moves= [TL, TR, BL, BR, LU, LD, RU, RD]
 
 moves_made = []
 
-for i in range(10):
-    move = random.choice(moves)
-    result = move()
-    moves_made.append(move)
-    print("selected function is", move)
+
+def scramble():
+    for i in range(10):
+        move = random.choice(moves)
+        result = move()
+        moves_made.append(move)
+        print("selected function is", move)
+        print(solve_state)
 
 moves_made = moves_made [::-1]
 
-print(moves_made)
 
-def cube_import():
-    print(solve_state)
 
 
 

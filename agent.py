@@ -1,28 +1,40 @@
 import random
-from model import moves, initialise, flatten_state, is_solved, solve_state
+from model import moves, initialise, flatten_state, is_solved, solve_state, scramble
 
 class RandomRLAgent:
     def __init__(self):
         self.history = []
 
     def run_episode(self, max_steps=20):
-        initialise()  # reset cube
+        initialise()
+        print("new attempt")
+        scramble()
+        #scramble 
         total_reward = 0
+        choices = []
 
-        for step in range(max_steps):
-            action_index = random.randint(0, len(moves) - 1)
-            move = moves[action_index]
-            move()  # apply move
 
-            reward = 10 if is_solved() else -1
-            total_reward += reward
+        for h in range(3):
+            choice = random.choice(moves)
 
-            # Store: (state, action, reward, new_state)
-            state = encode_state()
-            self.history.append((state, action_index, reward))
-
+            choices.append(choice)
             if is_solved():
-                print(f"Solved in {step + 1} steps!")
+                print("Solved!")
+                reward = 10
                 break
+            else:
+                reward =-1
+        
+
+        
+
+        total_reward += reward
+        print(reward)
+
+        # Store: (state, action, reward, new_state)
+        state = flatten_state()
+        self.history.append((state, reward))
+
+
 
         return total_reward
