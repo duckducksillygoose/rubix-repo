@@ -1,5 +1,5 @@
 import random
-from model import moves, initialise, encode_state, is_solved, solve_state
+from model import moves, initialise, flatten_state, is_solved, solve_state
 
 class RandomRLAgent:
     def __init__(self):
