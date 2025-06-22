@@ -4,6 +4,10 @@ from model import moves, initialise, flatten_state, is_solved, solve_state, scra
 class RandomRLAgent:
     def __init__(self):
         self.history = []
+        self.qtable = {}
+        self.alpha = 0
+        self.gamma = 0
+        self.epsilon =0
 
     def run_episode(self, max_steps=20):
         initialise()
