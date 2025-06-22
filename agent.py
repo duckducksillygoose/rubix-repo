@@ -10,9 +10,7 @@ class RandomRLAgent:
         self.epsilon =0
 
     def run_episode(self, max_steps=20):
-        initialise()
         print("new attempt")
-        scramble()
         #scramble 
         total_reward = 0
         choices = []

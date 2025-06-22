@@ -86,8 +86,8 @@ def scramble():
         move = random.choice(moves)
         result = move()
         moves_made.append(move)
-        print("selected function is", move)
-        print(solve_state)
+        #print("selected function is", move)
+    print(solve_state)
 
 moves_made = moves_made [::-1]
 
